@@ -1,8 +1,10 @@
 ADMIN
 <hr>
 
-Lista de clientes: <br>
+<p>Usuários</p>
 
-@foreach ($clientes as $cliente)
-    <p style="font-weight: bold">{{ $cliente->nome }}</p>
+@foreach ($usuarios as $usuario)
+    <p style="font-weight: bold">{{ $usuario->nome }}</p>
 @endforeach
+
+<p><a href="{{ route('novo-usuario') }}">Adicionar</a></p>

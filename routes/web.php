@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/admin', 'Admin\InicioController@inicio');
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'Admin\InicioController@index')->name('admin-inicio');
+    Route::get('/novousuario', 'Admin\NovoUsuarioController@index')->name('novo-usuario');
+});
