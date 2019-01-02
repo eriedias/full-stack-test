@@ -1,10 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+    <meta charset="UTF-8">
+    <title>ADMIN</title>
+</head>
+<body>
+
 ADMIN
 <hr>
 
-<p>Usuários</p>
+<ul>
+    <li><a href="{{ route('lista-de-usuarios') }}">Usuários</a></li>
+    <li><a href="">Clientes</a></li>
+    <li><a href="">Produtos</a></li>
+    <li><a href="">Vendas</a></li>
+</ul>
 
-@foreach ($usuarios as $usuario)
-    <p style="font-weight: bold">{{ $usuario->nome }}</p>
-@endforeach
 
-<p><a href="{{ route('novo-usuario') }}">Adicionar</a></p>
+</body>
+</html>

@@ -13,9 +13,15 @@
 
 Route::get('/', function () {
     return view('login');
-});
+})->name('login');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'Admin\InicioController@index')->name('admin-inicio');
-    Route::get('/novousuario', 'Admin\NovoUsuarioController@index')->name('novo-usuario');
+
+    Route::prefix('usuario')->group(function () {
+        Route::get('/', 'Admin\UsuarioController@index')->name('lista-de-usuarios');
+        Route::get('/cadastro', 'Admin\UsuarioController@create')->name('cadastro-de-usuario');
+        Route::put('/cadastro', 'Admin\UsuarioController@store');
+    });
+
 });

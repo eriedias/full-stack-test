@@ -82,7 +82,7 @@
             --}}
 
             <div class="content">
-                <a href="">Entrar</a>
+                <a href="{{ route('admin-inicio') }}">Entrar</a>
             </div>
 
         </div>

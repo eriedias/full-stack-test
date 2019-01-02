@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('matricula')->unique();
-            $table->string('senha');
+            $table->text('senha');
             $table->timestamp('created');
             $table->boolean('status');
         });

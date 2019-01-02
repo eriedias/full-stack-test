@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NovoUsuarioController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class NovoUsuarioController extends Controller
      */
     public function index()
     {
-        return view('admin.novo-usuario');
+        $usuarios = Usuario::all();
+        return view('admin.lista-de-usuarios', ['usuarios' => $usuarios]);
     }
 
     /**
@@ -24,7 +26,7 @@ class NovoUsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cadastro-de-usuario');
     }
 
     /**
@@ -34,8 +36,22 @@ class NovoUsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
-        //
+        // Validate the request...
+
+        $usuario = new Usuario;
+
+        $usuario->nome = $request->nome;
+        $usuario->matricula = $request->matricula;
+        $usuario->fill([
+            'senha' => encrypt($request->c8de)
+        ]);
+        $usuario->status = (isset($request->status) == '1' ? '1' : '0');
+
+        $usuario->save();
+
+        return redirect(route('lista-de-usuarios'));
     }
 
     /**

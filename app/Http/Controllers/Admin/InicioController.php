@@ -11,7 +11,6 @@ class InicioController extends Controller
 {
     public function index()
     {
-        $usuarios = Usuario::all();
-        return view('admin.index', ['usuarios' => $usuarios]);
+        return view('admin.index');
     }
 }
