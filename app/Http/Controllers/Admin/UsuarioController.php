@@ -73,7 +73,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('admin.edicao-de-usuario', ['usuario' => Usuario::findOrFail($id)]);
     }
 
     /**
@@ -86,6 +87,13 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $usuario = Usuario::find($id);
+        $usuario->nome = $request->nome;
+        $usuario->matricula = $request->matricula;
+        $usuario->status = (isset($request->status) == '1' ? '1' : '0');
+        $usuario->save();
+
+        return redirect( route('edicao-de-usuario', [ 'id' => $usuario->id ]) );
     }
 
     /**

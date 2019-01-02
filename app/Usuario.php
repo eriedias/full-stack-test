@@ -13,5 +13,9 @@ class Usuario extends Model
         'nome', 'matricula', 'senha',
     ];
 
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
     public $timestamps = false;
 }

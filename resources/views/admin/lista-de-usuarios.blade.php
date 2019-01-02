@@ -12,7 +12,7 @@
 <p>Usuários</p>
 
 @foreach ($usuarios as $usuario)
-    <p style="font-weight: bold">{{ $usuario->nome }}</p>
+    <p> <span style="font-weight: bold">{{ $usuario->nome }}</span> | <a href="">Remover</a> | <a href="{{ route('edicao-de-usuario', [ 'id' => $usuario->id ]) }}">Editar</a></p>
 @endforeach
 
 <p><a href="{{ route('cadastro-de-usuario') }}">Cadastro</a></p>

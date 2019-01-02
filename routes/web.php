@@ -22,6 +22,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/', 'Admin\UsuarioController@index')->name('lista-de-usuarios');
         Route::get('/cadastro', 'Admin\UsuarioController@create')->name('cadastro-de-usuario');
         Route::put('/cadastro', 'Admin\UsuarioController@store');
+        Route::get('/edicao/{id}', 'Admin\UsuarioController@edit', function ($id) {})->where('id', '[0-9]+')->name('edicao-de-usuario');
+        Route::put('/edicao/{id}', 'Admin\UsuarioController@update');
     });
 
 });
