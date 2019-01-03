@@ -44,9 +44,7 @@ class UsuarioController extends Controller
 
         $usuario->nome = $request->nome;
         $usuario->matricula = $request->matricula;
-        $usuario->fill([
-            'senha' => encrypt($request->c8de)
-        ]);
+        $usuario->senha = Hash::make($request->c8de);
         $usuario->status = (isset($request->status) == '1' ? '1' : '0');
 
         $usuario->save();
