@@ -73,7 +73,6 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-
         return view('admin.edicao-de-usuario', ['usuario' => Usuario::findOrFail($id)]);
     }
 
@@ -105,5 +104,9 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         //
+        $usuario = Usuario::find($id);
+        $usuario->delete();
+
+        return redirect(route('lista-de-usuarios'));
     }
 }
