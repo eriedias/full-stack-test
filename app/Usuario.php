@@ -14,8 +14,12 @@ class Usuario extends Model
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'senha', 'remember_token',
     ];
 
     public $timestamps = false;
+
+    public function getAuthPassword(){
+        return $this->senha;
+    }
 }

@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-})->name('login');
+Route::get('/', array('uses' => 'LoginController@index'));
+Route::post('/', array('uses' => 'LoginController@fazLogin'));
 
 Route::prefix('admin')->group(function () {
     Route::get('/', 'Admin\InicioController@index')->name('admin-inicio');
